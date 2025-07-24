@@ -159,7 +159,7 @@ function AdminPage() {
             if (res.data.success)
             {
                 console.log(`Running delete sucess`);
-
+                
                 setUpdateSuccessMsg(`Bug with ID ${id} successfully deleted`);
                 // setTimeout(()=>{
                 //     setUpdateSuccessMsg("");
@@ -308,7 +308,7 @@ function AdminPage() {
                         )
                     }
                     {
-                        selectedAction === "getAllBugs" || selectedAction === "viewBugByUserId" &&
+                        selectedAction === "getAllBugs"  &&
                         (
                             bugData.map((dataItem, index) => {
                                 return (
@@ -372,6 +372,25 @@ function AdminPage() {
                                 <p className='text-black dark:text-white'>Bug Description: {updateBugInfo.bug_description}</p>
                                 <p className='text-black dark:text-white'>Bug Status: {updateBugInfo.bug_status}</p>
                             </div>
+                        )
+                    }
+                    {/* selectedAction === "viewBugByUserId" */}
+                    {
+                        selectedAction === "viewBugByUserId" &&
+                        (
+                            bugData.map((dataItem, index) => {
+                                return (
+                                    <div className='py-[20px] pl-[20px] bg-slate-800 shadow-[0px_0px_10px_rgba(0,0,0,0.5)] rounded-md' key={dataItem._id}>
+                                        <p className='text-black dark:text-white'>_id: {dataItem._id}</p>
+                                        <p className='text-black dark:text-white'>Bug Name: {dataItem.bug_name}</p>
+                                        <p className='text-black dark:text-white'>Bug Level: {dataItem.bug_level}</p>
+                                        <p className='text-black dark:text-white'>Bug Description: {dataItem.bug_description}</p>
+                                        <p className='text-black dark:text-white'>Bug Status: {dataItem.bug_status}</p>
+                                        <p className='text-black dark:text-white'>Bug Created At: {dataItem.createdAt}</p>
+                                        <p className='text-black dark:text-white'>Bug Updated At: {dataItem.updatedAt}</p>
+                                        <p className='text-black dark:text-white'>User ID: {dataItem.user_id}</p>                                </div>
+                                )
+                            })
                         )
                     }
                     {
