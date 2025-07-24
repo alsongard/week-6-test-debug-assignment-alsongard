@@ -4,6 +4,7 @@ import Header from "./components/header.jsx";
 import LoginReg from "./pages/user_login_registration.jsx";
 import BugPage from "./pages/report_bug_page.jsx";
 import AdminPage from "./pages/adminPage.jsx";
+import LoginAdmin from "./pages/login_admin.jsx";
 export default function App()
 {
     const[darkMode, setDarkMode] = useState("");
@@ -21,12 +22,13 @@ export default function App()
             <BrowserRouter>
             <Routes>
                 <Route path="/" element={<div><Header/><Outlet/></div>}>
-                    <Route index element={<h1 className="text-2xl text-center dark:text-white">Welcome to BugAppTracker</h1>} />
+                    <Route index element={<h1 className="text-2xl text-center dark:text-white">Welcome to BugAppTracker </h1>} />
                     <Route path="register" element={<LoginReg />} />
                     <Route path="services" element={<h1 className="text-2xl text-center dark:text-white">Our Services</h1>} />
                     <Route path="*" element={<h1 className="text-2xl text-center dark:text-white">404 Not Found</h1>} />
                     <Route path="bug" element={<BugPage />}/>
-                    <Route path="admin" element={<AdminPage/>}/>
+                    <Route path='admin_login' element={<LoginAdmin/>}/>
+                    <Route path="admin_page" element={<AdminPage/>}/>
                 </Route>
             </Routes>
             </BrowserRouter>
