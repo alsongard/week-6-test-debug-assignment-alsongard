@@ -62,7 +62,7 @@ export default function LoginReg()
                 const response = await axios.post("http://localhost:5001/login", formData);
                 console.log("Login successful:", response.data);
                 localStorage.setItem("user_id", response.data.data.user_id);
-                localStorage.setItem("user_email", response.data.data.user_email);
+                localStorage.setItem("user_email", response.data.data.useremail);
                 localStorage.setItem("user_role", response.data.data.role);
                 localStorage.setItem("token", response.data.data.token);
                 navigate("/bug");
